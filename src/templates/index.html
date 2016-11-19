@@ -1,0 +1,93 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <h2>
+                    Social Network Site
+                </h2>
+                <p>
+                    This is a social networking site :)
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>
+                        Already a member? Login Now!
+                    </h3>
+
+                    {% if login_err: %}
+                    <p class="bg-danger">
+                        {{login_err}}
+                    </p>
+                    {% endif %}
+
+                    <form role="form" method="POST" action="/login">
+                        <div class="form-group">
+                            <label for="loginEmail">
+								Email address
+							</label>
+                            <input class="form-control" id="loginEmail" type="email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">
+								Password
+							</label>
+                            <input class="form-control" id="loginPassword" type="password" />
+                        </div>
+                        <button type="submit" class="btn btn-default">
+							Submit
+						</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h3>
+                        Want to Join? Register Now!
+                    </h3>
+
+                    {% if register_err: %}
+                    <p class="bg-danger">
+                        {{register_err}}
+                    </p>
+                    {% endif %}
+
+                    <form role="form" method="POST" action="/register">
+                        <div class="form-group">
+                            <label for="registerDisplayName">
+								Display Name
+							</label>
+                            <input class="form-control" id="registerDisplayName" name="registerDisplayName" type="text" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerEmail">
+								Email address
+							</label>
+                            <input class="form-control" id="registerEmail" name="registerEmail" type="email" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerPassword">
+								Password
+							</label>
+                            <input class="form-control" id="registerPassword" name="registerPassword" type="password" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerConfirmPassword">
+							    Confirm Password
+							</label>
+                            <input class="form-control" id="registerConfirmPassword" name="registerConfirmPassword" type="password" />
+                        </div>
+                        <button type="submit" class="btn btn-default">
+							Submit
+						</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
